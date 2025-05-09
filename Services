@@ -64,23 +64,28 @@
     <div class="service-list">
       <h2>Services</h2>
       <ul>
-        <li onclick="showDescription('web')">Web Development</li>
-        <li onclick="showDescription('seo')">SEO Optimization</li>
-        <li onclick="showDescription('design')">Graphic Design</li>
+        <li onclick="showDescription('web')">Final Expense</li>
+        <li onclick="showDescription('seo')">Life Insurance</li>
+        <li onclick="showDescription('design')">Annuities</li>
+        <li onclick="showDescription('seo')">Medicare</li>
+        <li onclick="showDescription('seo')">ACA Marketplace/Health Insurance</li>
+        <li onclick="showDescription('seo')">Dental and Vision</li>
       </ul>
     </div>
 
     <div id="description" class="description-box">
       <h2>Description</h2>
-      <p>Click a service on the left to see its description here.</p>
     </div>
   </div>
 
   <script>
     const descriptions = {
-      web: "We build fast, responsive, and scalable websites tailored to your business needs.",
-      seo: "Our SEO strategies help improve your visibility and drive more traffic to your site.",
-      design: "Creative and effective graphic design solutions for your brand identity, social media, and more."
+      Final Expense: "Final Expense Insurance is a type of life insurance that helps pay for funeral costs and other bills after someone dies. It gives money to your family so they don’t have to worry about paying for your burial, casket, or other final costs. It’s easier to get than some other types of insurance. You pay a small amount each month, and when you pass away, your loved ones get money to help with funeral expenses.",
+      Life Insurance: "Life Insurance is a plan that gives your family money if you pass away. It helps them pay for things like bills, rent, or school. There are different types: Term Life lasts for a certain number of years, and Whole Life lasts your whole life and builds savings. IUL (Indexed Universal Life) is a special kind of life insurance that also helps you grow money over time based on the stock market.",
+      Annuities: "Annuities are plans that gives you money every month after you stop working. You can usually buy one starting at age 18. There are different kinds: Immediate Annuities start paying you right away, and Deferred Annuities pay you later, like when you retire. Some annuities are Fixed, meaning you get the same amount each time, and some are Variable, meaning the amount can change based on the stock market. Annuities help make sure you have money for the rest of your life."
+      Medicare: "Medicare is a health insurance program from the government for people who are 65 or older or younger people with certain disabilities. It helps pay for doctor visits, hospital stays, and medicine. There are different parts: Part A helps with hospital care, Part B helps with doctor visits and tests, Part C (Medicare Advantage) is a private plan that covers Parts A and B, and sometimes more, and Part D helps pay for prescription drugs. You can sign up a few months before you turn 65. Medicare helps make health care more affordable as you get older. Some people also buy a Medicare Supplement (Medigap) plan to help pay for extra costs that Medicare doesn’t cover, like co-pays and deductibles."
+      ACA Marketplace/Health Insurance: "ACA Insurance is Health Insurance from the government’s Marketplace, made to help more people get care they can afford. It was created by the Affordable Care Act (ACA), also called “Obamacare.” These plans cover doctor visits, hospital stays, medicines, and more. Many people get help paying for it, so the monthly cost is lower. You can sign up during certain times each year, or if you have a big life change like losing a job or coverage."
+      Dental and Vision: "Dental and Vision Insurance help you take care of your teeth and eyes. Dental Insurance helps pay for cleanings, fillings, and other dental work. Vision Insurance helps with eye exams, glasses, and contacts. These plans are important for staying healthy. Dental and Vision are not usually included in ACA Health Insurance or Medicare. Some ACA plans may offer them, but often you need to buy a separate plan. With Medicare, you also need to buy an extra Dental or Vision plan unless you have a Medicare Advantage plan that includes it."
     };
 
     function showDescription(serviceKey) {
