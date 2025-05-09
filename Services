@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    .service-list {
+      width: 30%;
+      background-color: #f0f0f0;
+      padding: 20px;
+      box-sizing: border-box;
+      border-right: 2px solid #ddd;
+    }
+
+    .service-list h2 {
+      margin-top: 0;
+    }
+
+    .service-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .service-list li {
+      margin: 10px 0;
+      cursor: pointer;
+      color: #007BFF;
+      text-decoration: underline;
+    }
+
+    .description-box {
+      width: 70%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .service-list, .description-box {
+        width: 100%;
+        border-right: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="service-list">
+      <h2>Services</h2>
+      <ul>
+        <li onclick="showDescription('web')">Web Development</li>
+        <li onclick="showDescription('seo')">SEO Optimization</li>
+        <li onclick="showDescription('design')">Graphic Design</li>
+      </ul>
+    </div>
+
+    <div id="description" class="description-box">
+      <h2>Description</h2>
+      <p>Click a service on the left to see its description here.</p>
+    </div>
+  </div>
+
+  <script>
+    const descriptions = {
+      web: "We build fast, responsive, and scalable websites tailored to your business needs.",
+      seo: "Our SEO strategies help improve your visibility and drive more traffic to your site.",
+      design: "Creative and effective graphic design solutions for your brand identity, social media, and more."
+    };
+
+    function showDescription(serviceKey) {
+      const descBox = document.getElementById("description");
+      descBox.innerHTML = `
+        <h2>${serviceKey === 'web' ? 'Web Development' :
+              serviceKey === 'seo' ? 'SEO Optimization' : 
+              'Graphic Design'}</h2>
+        <p>${descriptions[serviceKey]}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
