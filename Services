@@ -10,6 +10,7 @@
       padding: 0;
       display: flex;
       min-height: 100vh;
+      font-size: 18px;
     }
 
     .container {
@@ -19,15 +20,15 @@
 
     .service-list {
       width: 30%;
-      background-color: #f0f0f0;
-      padding: 20px;
+      padding: 30px;
       box-sizing: border-box;
       border-right: 2px solid #ddd;
     }
 
     .service-list h2 {
       margin-top: 0;
-      color: #90ee90; /* Light green */
+      color: #228B22;
+      font-size: 28px;
     }
 
     .service-list ul {
@@ -36,25 +37,30 @@
     }
 
     .service-list li {
-      margin: 10px 0;
+      margin: 20px 0;
       cursor: pointer;
       color: #007BFF;
       text-decoration: underline;
+      font-size: 20px;
     }
 
     .description-box {
       width: 70%;
-      padding: 20px;
+      padding: 30px;
       box-sizing: border-box;
+      font-size: 20px;
+      line-height: 1.6;
     }
 
     @media screen and (max-width: 768px) {
       .container {
         flex-direction: column;
       }
+
       .service-list, .description-box {
         width: 100%;
         border-right: none;
+        padding: 20px;
       }
     }
   </style>
@@ -75,7 +81,7 @@
     </div>
 
     <div id="description" class="description-box">
-      <!-- This will be filled in when an item is clicked -->
+      <!-- No default message -->
     </div>
   </div>
 
@@ -83,7 +89,7 @@
     const descriptions = {
       finalExpense: "Final Expense Insurance helps cover funeral costs and other end-of-life expenses. It provides peace of mind for your loved ones by easing the financial burden when you pass away.",
       lifeInsurance: "Life Insurance provides financial support to your loved ones in case of your death. Options include Term Life, Whole Life, and Indexed Universal Life (IUL) policies.",
-      annuities: "Annuities provide steady income during retirement. You can choose immediate or deferred annuities, and some grow based on fixed rates or the market.",
+      annuities: "Annuities provide steady income during retirement. Some start right away, others wait until later. They're a good way to ensure you have income for life.",
       medicare: "Medicare is government health insurance for people 65+ or with disabilities. It helps cover hospital stays, doctor visits, prescriptions, and more.",
       aca: "ACA Health Insurance (Obamacare) offers affordable health plans through the Marketplace. It covers doctor visits, emergency care, prescriptions, and preventive services.",
       dentalVision: "Dental and Vision Insurance cover checkups, cleanings, eye exams, glasses, and more. These are usually separate from general health coverage."
