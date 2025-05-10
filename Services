@@ -1,105 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Services</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      min-height: 100vh;
-      font-size: 18px;
-    }
+<meta charset="UTF-8">
+<title>Services</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+  }
 
+  .container {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+
+  .service-list {
+    width: 30%;
+    padding: 30px;
+    box-sizing: border-box;
+    border-right: 2px solid #ddd;
+  }
+
+  .service-list h2 {
+    margin-top: 0;
+    color: #228B22;
+    font-size: 28px;
+  }
+
+  .service-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .service-list li {
+    margin: 20px 0;
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: underline;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .description-box {
+    width: 70%;
+    padding: 30px;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 768px) {
     .container {
-      display: flex;
+      flex-direction: column;
+    }
+
+    .service-list, .description-box {
       width: 100%;
+      border-right: none;
+      padding: 20px;
     }
 
-    .service-list {
-      width: 30%;
-      padding: 30px;
-      box-sizing: border-box;
-      border-right: 2px solid #ddd;
+    .description-box.inline {
+      padding: 10px 0;
+      border-top: 1px solid #ccc;
     }
-
-    .service-list h2 {
-      margin-top: 0;
-      color: #228B22;
-      font-size: 28px;
-    }
-
-    .service-list ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .service-list li {
-      margin: 20px 0;
-      cursor: pointer;
-      color: #007BFF;
-      text-decoration: underline;
-      font-size: 20px;
-    }
-
-    .description-box {
-      width: 70%;
-      padding: 30px;
-      box-sizing: border-box;
-      font-size: 20px;
-      line-height: 1.6;
-    }
-
-    @media screen and (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .service-list, .description-box {
-        width: 100%;
-        border-right: none;
-        padding: 20px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="service-list">
-      <h2>Services</h2>
-      <ul>
-        <li onclick="showDescription('finalExpense')">Final Expense</li>
-        <li onclick="showDescription('lifeInsurance')">Life Insurance</li>
-        <li onclick="showDescription('annuities')">Annuities</li>
-        <li onclick="showDescription('medicare')">Medicare</li>
-        <li onclick="showDescription('aca')">ACA Marketplace/Health Insurance</li>
-        <li onclick="showDescription('dentalVision')">Dental and Vision</li>
-      </ul>
-    </div>
-
-    <div id="description" class="description-box">
-      <!-- No default message -->
-    </div>
+<div class="container">
+  <div class="service-list">
+    <h2>Services</h2>
+    <ul id="serviceItems">
+      <li onclick="showDescription('finalExpense', this)">Final Expense</li>
+      <li onclick="showDescription('lifeInsurance', this)">Life Insurance</li>
+      <li onclick="showDescription('annuities', this)">Annuities</li>
+      <li onclick="showDescription('medicare', this)">Medicare</li>
+      <li onclick="showDescription('aca', this)">ACA Marketplace/Health Insurance</li>
+      <li onclick="showDescription('dentalVision', this)">Dental and Vision</li>
+    </ul>
   </div>
 
-  <script>
-    const descriptions = {
-      finalExpense: "Final Expense Insurance helps cover funeral costs and other end-of-life expenses. It provides peace of mind for your loved ones by easing the financial burden when you pass away.",
-      lifeInsurance: "Life Insurance provides financial support to your loved ones in case of your death. Options include Term Life, Whole Life, and Indexed Universal Life (IUL) policies.",
-      annuities: "Annuities provide steady income during retirement. Some start right away, others wait until later. They're a good way to ensure you have income for life.",
-      medicare: "Medicare is government health insurance for people 65+ or with disabilities. It helps cover hospital stays, doctor visits, prescriptions, and more.",
-      aca: "ACA Health Insurance (Obamacare) offers affordable health plans through the Marketplace. It covers doctor visits, emergency care, prescriptions, and preventive services.",
-      dentalVision: "Dental and Vision Insurance cover checkups, cleanings, eye exams, glasses, and more. These are usually separate from general health coverage."
-    };
+  <div id="description" class="description-box"></div>
+</div>
 
-    function showDescription(serviceKey) {
-      const descBox = document.getElementById("description");
+<script>
+  const descriptions = {
+    finalExpense: "Final Expense Insurance helps cover funeral costs and other end-of-life expenses...",
+    lifeInsurance: "Life Insurance provides financial support to your loved ones...",
+    annuities: "Annuities provide steady income during retirement...",
+    medicare: "Medicare is government health insurance for people 65+ or with disabilities...",
+    aca: "ACA Health Insurance (Obamacare) offers affordable health plans through the Marketplace...",
+    dentalVision: "Dental and Vision Insurance cover checkups, cleanings, eye exams, and more..."
+  };
+
+  function showDescription(serviceKey, element) {
+    const descContent = `<div class="description-box${window.innerWidth <= 768 ? ' inline' : ''}"><p>${descriptions[serviceKey]}</p></div>`;
+
+    const descBox = document.getElementById('description');
+    if (window.innerWidth <= 768) {
+      // On mobile: inject description right after clicked item
+      // First remove any existing inline descriptions
+      document.querySelectorAll('.description-box.inline').forEach(el => el.remove());
+
+      // Insert new one right after clicked <li>
+      element.insertAdjacentHTML('afterend', descContent);
+    } else {
+      // On desktop: just update the main right-side description box
       descBox.innerHTML = `<p>${descriptions[serviceKey]}</p>`;
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
