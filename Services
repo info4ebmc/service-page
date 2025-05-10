@@ -90,12 +90,12 @@
 
 <script>
   const descriptions = {
-    finalExpense: "Final Expense Insurance helps cover funeral costs and other end-of-life expenses...",
-    lifeInsurance: "Life Insurance provides financial support to your loved ones...",
-    annuities: "Annuities provide steady income during retirement...",
-    medicare: "Medicare is government health insurance for people 65+ or with disabilities...",
-    aca: "ACA Health Insurance (Obamacare) offers affordable health plans through the Marketplace...",
-    dentalVision: "Dental and Vision Insurance cover checkups, cleanings, eye exams, and more..."
+    finalExpense: "Final Expense Insurance helps cover funeral costs and other end-of-life expenses. It provides peace of mind for your loved ones by easing the financial burden when you pass away.",
+    lifeInsurance: "Life Insurance provides financial support to your loved ones in case of your death. Options include Term Life, Whole Life, and Indexed Universal Life (IUL) policies.",
+    annuities: "Annuities provide steady income during retirement. Some start right away, others wait until later. They're a good way to ensure you have income for life.",
+    medicare: "Medicare is government health insurance for people 65+ or with disabilities. It helps cover hospital stays, doctor visits, prescriptions, and more.",
+    aca: "ACA Health Insurance (Obamacare) offers affordable health plans through the Marketplace. It covers doctor visits, emergency care, prescriptions, and preventive services.",
+    dentalVision: "Dental and Vision Insurance cover checkups, cleanings, eye exams, glasses, and more. These are usually separate from general health coverage."
   };
 
   function showDescription(serviceKey, element) {
